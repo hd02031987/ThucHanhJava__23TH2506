@@ -11,11 +11,18 @@ public class LAP02_TaoMenu {
         int chon;
 
         do {
-            System.out.println("Menu:");
-            System.out.println("1. Bài tập 1");
-            System.out.println("2. Bài tập 2");
-            System.out.println("3. Bài tập 3");
-            System.out.println("4. Thoát");
+            System.out.println("==========MENU==========");
+            System.out.println("------------------------");
+            System.out.println("1. Chu vi, diện tích hình chữ nhật");
+            System.out.println("2. Tính tiền điện");
+            System.out.println("3. Giải phương trình bậc 2");
+            System.out.println("4. Tính BMI");
+            System.out.println("5. Nhập xuất điểm trung bình");
+            System.out.println("6. Giải phương trình bậc 1");
+            System.out.println("7. Chu vi, diện tích hình tròn");
+            System.out.println("8. Bài tập Nhập xuất từ bàn phím");
+            System.out.println("9. Bài tập làm quen với ngôn ngữ JaVa");
+            System.out.println("10. Thoát");
             System.out.print("Nhập lựa chọn của bạn: ");
             chon = scanner.nextInt();
 
@@ -30,12 +37,30 @@ public class LAP02_TaoMenu {
                     baiTap3();
                     break;
                 case 4:
+                    baiTap4();
+                    break;
+                case 5:
+                    baiTap5();
+                    break;
+                case 6:
+                    baiTap6();
+                    break;
+                case 7:
+                    baiTap7();
+                    break;
+                case 8:
+                    baiTap8();
+                    break;
+                case 9:
+                    baiTap9();
+                    break;
+                case 10:
                     System.out.println("Kết thúc!");
                     break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ. Vui lòng nhập lại!");
             }
-        } while (chon != 4);
+        } while (chon != 10);
     }
 
     // Các phương thức thực hiện các bài tập
@@ -125,5 +150,119 @@ System.out.println("Delta = " + Delta);
 		}
         System.out.println("Bạn đã chọn bài tập 3");
 	}
+    public static void baiTap4() 
+    {
+    	Scanner scanner = new Scanner(System.in);
+		String thongBao = null;
+		System.out.print("Nhập họ tên: ");
+		String hoTen = scanner.nextLine();
+		System.out.print("Nhập chiều cao m: ");
+		double chieuCao = scanner.nextDouble();
+		System.out.print("Nhập cân nặng Kg :");
+		double canNang = scanner.nextDouble();
+		//Công thức tính BMI
+		double bmi = canNang/Math.pow(chieuCao, 2);	
+		System.out.println("BMI của " + hoTen + " là: " + bmi);
+		if(bmi<16) {
+			thongBao = "Gầy mức độ III";}
+		else if(bmi<17) 
+		{ thongBao = "Gầy mức độ II";}
+		else if
+		(bmi<18.5) { thongBao = "Gầy mức độ I";}
+		else if(bmi<25) 
+		{thongBao = "Bình thường";}
+		else if(bmi<30) 
+		{thongBao = "Thừa cân";}
+		else if(bmi<35) 
+		{thongBao = "Béo phì mức độ I";}
+		else if(bmi<40) 
+		{thongBao = "Béo phì mức độ II";}
+		else if(bmi>16) 
+		{thongBao = "Béo phì mức độ III";}		
+		System.out.println(thongBao);
+    }
+    public static void baiTap5() 
+    {
+    	Scanner scanner = new Scanner(System.in);
 
+
+        // Nhập họ và tên
+        System.out.print("Nhập họ và tên SV: ");
+        String hoTen = scanner.nextLine();
+
+        // Nhập điểm trung bình
+        System.out.print("Nhập điểm trung bình: ");
+        double diemTrungBinh = scanner.nextDouble();
+
+        // Xuất kết quả
+        System.out.println(hoTen + " đạt " + diemTrungBinh + " điểm");
+
+        scanner.close();
+    }
+    public static void baiTap6() 
+    {
+    	System.out.println("Phương trình bậc nhất có dạng ax + b=0");
+    	System.out.println("-----------------------------------------");
+    	//Khai báo biến
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.print("Nhập giá trị a: ");
+    	double a = scanner.nextDouble();
+    	System.out.print("Nhập giá trị b: ");
+    	double b = scanner.nextDouble();
+    	double x = -b/a;
+    	if(a==0) 
+    		{ 
+    		if(b==0)
+    			{
+    			System.out.println("Phương trình vô số nghiệm");
+    			}
+    		else 
+    			{
+    			System.out.println("Phương trình vô nghiệm");
+    			}
+    		}
+    	else 
+    		{
+    		System.out.print("Nghiệm của phương trình là: " + x);
+    		}
+    }
+    public static void baiTap7() 
+    {
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.print("Nhập bán kính: ");
+    	double banKinh = scanner.nextDouble();
+    	double duongKinh = banKinh*2;
+    	double chuVi = duongKinh*Math.PI;
+    	double dienTich = Math.pow(banKinh,2)*3.14;
+    	// Xuất ra màn hình
+    	System.out.println("==============================");
+    	System.out.println("Chu vi hình tròn: " + chuVi);
+    	System.out.println("Diện tích hình tròn: " + dienTich);
+    } 
+    public static void baiTap8() 
+    {
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.print("Nhập họ tên:");
+    	String hoTen = scanner.nextLine();
+    	System.out.print("Tuổi: ");
+    	int tuoi = scanner.nextInt();
+    	System.out.print("Cân nặng (Kg): ");
+    	double canNang = scanner.nextDouble();
+    	System.out.print("Chiều cao (cm): ");
+    	double chieuCao = scanner.nextDouble();
+    	//Xuất thông tin nhập
+    	System.out.println("------------------------------------------");
+    	System.out.println("Họ và tên: " + hoTen);
+    	System.out.println("Tuổi: " + tuoi);
+    	System.out.println("Cân nặng: " + canNang);
+    	System.out.println("Chiều cao: " + chieuCao);
+    }
+    public static void baiTap9() 
+    {
+    	int a = 5;
+    	int b = 6;
+    	int c = a + b;
+    	System.out.println("a + b = " + c);
+    	System.out.println("Hôm nay học Java, Nhập môn còn hơi bỡ ngỡ.");
+    }
 }
